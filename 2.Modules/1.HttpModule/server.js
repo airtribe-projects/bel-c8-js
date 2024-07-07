@@ -3,10 +3,21 @@ const PORT = 8080;
 
 const server = http.createServer((req, res) => {
   const url = req.url;
+  const method = req.method;
+  console.log(method, "method");
   console.log(url, "url");
 
+  // Intension : you are exposing the endpoint and the method (BOTH ARE VERY IMPORTANT)...
+
   if (url === "/") {
-    res.end("HOME PAGE");
+    if (method === "GET") {
+      res.write("WELCOME");
+      res.write("\n 8383838484585");
+      res.write("\n thakr@gmail.com");
+      res.end("HOME PAGE");
+    } else {
+      res.end("cannot " + method);
+    }
   } else if (url === "/fitness") {
     res.end("Nice you are Crazy about fitness");
   } else if (url === "/play") {

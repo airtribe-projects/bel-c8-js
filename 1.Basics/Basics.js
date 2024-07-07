@@ -19,3 +19,15 @@ console.log("c");
 // -------  IMPORT TECHNIQUE -----------
 // import xyz from 'asdsadas'; // ES6
 // requeire() // Common JS
+
+// DEBUGGING
+// ---- CHROME DEBUGGING
+// 1. node --inspect-brk index.js
+// 2. go to chrome type chorme://inspect in address bar
+// 3. click on inspect.
+
+// ------ VS code devugging
+// 1. open ctrl + ,;
+// 2. search for auto attach
+// 3 . select only with flag from dropdown
+// 4. node --inspect index.js
