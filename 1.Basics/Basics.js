@@ -18,7 +18,11 @@ console.log("c");
 
 // -------  IMPORT TECHNIQUE -----------
 // import xyz from 'asdsadas'; // ES6
-// requeire() // Common JS
+// require() // Common JS
+
+// --------------- EXPORT ---------------
+// export default xyz -> // es6
+// module.export = {}
 
 // DEBUGGING
 // ---- CHROME DEBUGGING
