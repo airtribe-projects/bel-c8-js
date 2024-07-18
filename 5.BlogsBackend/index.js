@@ -12,7 +12,7 @@ dotenv.config();
 
 // IMPOET OF ROUTES
 const fitnessRoute = require("./routes/fitness.routes");
-const fitnessRouteV2 = require("./routes/fitness.routesV2");
+const fitnessRouteV2 = require("./routes/fitness.routes.V2");
 const userRoute = require("./routes/users.routes");
 
 // Register ROUtes
