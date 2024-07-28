@@ -10,7 +10,6 @@ async function createUser(req, res) {
   try {
     // logging
     const { message, status } = await UserRegService(req.body);
-
     res.json({
       message,
       status,
