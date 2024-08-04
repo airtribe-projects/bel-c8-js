@@ -212,7 +212,7 @@ console.log("b");
 */
 
 // EXAMPLE 6:
-
+/*
 const fs = require("node:fs");
 console.log("a");
 
@@ -233,5 +233,83 @@ fs.readFile("./file.txt", (error, data) => {
 });
 
 console.log("b");
+*/
 
 // Answer
+
+// EXAMPLE 7: ----- > ANOMALY
+/*
+console.log("a");
+setTimeout(() => {
+  console.log("this is settimeout1");
+}, 0);
+setImmediate(() => {
+  console.log("this is immediate");
+});
+console.log("b");
+*/
+
+// ANSWER:
+/*
+a
+b
+this is settimeout1
+this is immediate
+ */
+
+/*
+a
+b
+this is immediate
+this is settimeout1
+*/
+
+// // EXAMPLE 8: ----- > ANOMALY SOLUTION
+/*
+SOL 1:
+setTimeout(() => {
+  console.log("this is settimeout1");
+  setImmediate(() => {
+    console.log("this is immediate");
+  });
+}, 0);
+
+console.log("b");
+*/
+
+/*
+  SOL 2: 
+  setTimeout(() => {
+    console.log("this is settimeout1");
+  }, 0);
+
+  setImmediate(() => {
+    console.log("this is immediate");
+  });
+
+  for (let i = 0; i < 1000000000; i++) {}
+*/
+
+// SOL 3 -> TRY WITH ASYNC AWAIT AS WELL
+
+const setTimeOut = () =>
+  new Promise((res, rej) => {
+    setTimeout(() => {
+      console.log("setTimeout");
+      res();
+    }, 100);
+  });
+const immediate = () =>
+  new Promise((res, rej) => {
+    setTimeout(() => {
+      console.log("setImmediate");
+      res();
+    }, 0);
+  });
+setTimeOut()
+  .then(() => immediate())
+  .then(() => {
+    console.log("Both completed");
+  });
+
+// TODO: LINK to REPO ->
